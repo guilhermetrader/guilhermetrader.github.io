@@ -282,6 +282,120 @@ h1 {
 .month-header:hover .arrow {
     color: #ffffff;
 }
+
+/* Adicione estas media queries no final do seu CSS atual */
+
+@media screen and (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .title-container h1 {
+        font-size: 20px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .telegram-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #statsFilter {
+        width: 100%;
+    }
+
+    .month-header h3 {
+        font-size: 14px;
+    }
+
+    /* Ajustes para a tabela em mobile */
+    .table-container {
+        margin: 0 -20px;
+        width: calc(100% + 40px);
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px 4px;
+    }
+
+    /* Reorganiza a tabela para melhor visualização em mobile */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        background: #1e1e1e;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        border-bottom: 1px solid #333;
+    }
+
+    td:before {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .month-accordion {
+        margin-bottom: 15px;
+    }
+}
+    
 </style>
 </head>
 <body>
@@ -446,44 +560,45 @@ h1 {
         return months[monthName];
     }
 
-    function createMonthlySection(month, trades) {
-        return `
-            <div class="month-accordion">
-                <div class="month-header">
-                    <h3>${month}</h3>
-                    <span class="arrow">▲</span>
-                </div>
-                <div class="month-content">
-                    <div class="table-container">
-                        <table>
-                            <thead>
+function createMonthlySection(month, trades) {
+    return `
+        <div class="month-accordion">
+            <div class="month-header">
+                <h3>${month}</h3>
+                <span class="arrow">▲</span>
+            </div>
+            <div class="month-content">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Hora</th>
+                                <th>Moeda</th>
+                                <th>Tipo</th>
+                                <th>Tempo</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${trades.map(trade => `
                                 <tr>
-                                    <th>Data</th>
-                                    <th>Hora</th>
-                                    <th>Moeda</th>
-                                    <th>Tipo</th>
-                                    <th>Tempo</th>
-                                    <th>Resultado</th>
+                                    <td data-label="Data">${trade[0]}</td>
+                                    <td data-label="Hora">${trade[1]}</td>
+                                    <td data-label="Moeda">${trade[2]}</td>
+                                    <td data-label="Tipo">${trade[3]}</td>
+                                    <td data-label="Tempo">${trade[4]}</td>
+                                    <td data-label="Resultado" class="${trade[5] === '✅' ? 'success' : 'error'}">${trade[5]}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                ${trades.map(trade => `
-                                    <tr>
-                                        <td>${trade[0]}</td>
-                                        <td>${trade[1]}</td>
-                                        <td>${trade[2]}</td>
-                                        <td>${trade[3]}</td>
-                                        <td>${trade[4]}</td>
-                                        <td class="${trade[5] === '✅' ? 'success' : 'error'}">${trade[5]}</td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    </div>
+                            `).join('')}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        `;
-    }
+        </div>
+    `;
+}
+
 
     function updateStats(trades, period) {
         const total = trades.length;
