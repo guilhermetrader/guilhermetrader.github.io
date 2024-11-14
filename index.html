@@ -451,7 +451,7 @@ h1 {
             <div class="month-accordion">
                 <div class="month-header">
                     <h3>${month}</h3>
-                    <span class="arrow">▼</span>
+                    <span class="arrow">+</span>
                 </div>
                 <div class="month-content">
                     <div class="table-container">
@@ -529,7 +529,7 @@ h1 {
                 const content = header.nextElementSibling;
                 content.classList.toggle('active');
                 const arrow = header.querySelector('.arrow');
-                arrow.textContent = content.classList.contains('active') ? '▲' : '▼';
+                arrow.textContent = content.classList.contains('active') ? '-' : '+';
             });
         });
     }
