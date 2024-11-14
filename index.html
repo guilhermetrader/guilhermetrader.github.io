@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Trading Automation - Guilherme Trader</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Elite Trading Automation - Transforme sinais em lucros reais com nossa tecnologia exclusiva de automação">
+    <title>Elite Trading Automation | Automação Inteligente para Traders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0a1930;
-            --secondary-color: #ffd700;
-            --text-color: #ffffff;
-            --dark-bg: #060d1a;
-            --card-bg: #0c1f3c;
-            --success-color: #00ff88;
-            --accent-color: #1a237e;
+            --primary-color: #0B1437;
+            --secondary-color: #FFB800;
+            --accent-color: #2563EB;
+            --success-color: #059669;
+            --text-color: #F3F4F6;
+            --text-secondary: #9CA3AF;
+            --dark-bg: #060918;
+            --card-bg: #111C44;
+            --gradient-primary: linear-gradient(135deg, #0B1437 0%, #1E3A8A 100%);
+            --gradient-accent: linear-gradient(135deg, #FFB800 0%, #FF8A00 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -23,312 +32,524 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background: var(--dark-bg);
         }
 
-        .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            padding: 150px 20px;
-            text-align: center;
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 20, 55, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: var(--gradient-accent);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: var(--gradient-primary);
+            padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(255,215,0,0.1) 0%, transparent 100%);
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            font-weight: 800;
-        }
-
-        .header p {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            max-width: 800px;
-            margin: 0 auto;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.5;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.125rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         .stats {
-            background: var(--card-bg);
-            padding: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-top: -70px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            border: 1px solid rgba(255,215,0,0.1);
+            margin-top: -80px;
             position: relative;
             z-index: 2;
         }
 
-        .stat-item {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 184, 0, 0.1);
+        }
+
+        .stat-card {
             text-align: center;
-            padding: 30px;
-            flex: 1;
-            min-width: 250px;
+            padding: 2rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
             transition: transform 0.3s ease;
         }
 
-        .stat-item:hover {
-            transform: translateY(-10px);
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .stat-item h3 {
-            color: var(--secondary-color);
-            font-size: 3.5rem;
-            margin-bottom: 15px;
+        .stat-number {
+            font-size: 3rem;
             font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
-        .results-showcase {
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        /* Continuação no próximo bloco... */
+        .features {
             padding: 120px 0;
             background: var(--primary-color);
         }
 
-        .results-grid {
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .result-card {
+        .feature-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            border: 1px solid rgba(255, 184, 0, 0.1);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,215,0,0.1);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        .result-card img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
         }
 
-        .result-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(255,215,0,0.1);
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
 
-        .plans {
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        .pricing {
             padding: 120px 0;
+            background: var(--dark-bg);
         }
 
-        .plan-card {
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 60px 40px;
+            border-radius: 16px;
+            padding: 3rem 2rem;
             text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 184, 0, 0.1);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,215,0,0.1);
+            position: relative;
         }
 
-        .plan-card.featured {
+        .price-card.popular {
             border: 2px solid var(--secondary-color);
             transform: scale(1.05);
         }
 
-        .plan-card.featured::before {
-            content: 'MAIS POPULAR';
+        .price-card.popular::before {
+            content: 'Mais Popular';
             position: absolute;
-            top: 20px;
-            right: -35px;
-            transform: rotate(45deg);
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
             background: var(--secondary-color);
             color: var(--primary-color);
-            padding: 8px 40px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
         }
 
-        .price {
-            font-size: 3.5rem;
-            color: var(--secondary-color);
-            margin: 30px 0;
-            font-weight: 800;
+        .price-card:hover {
+            transform: translateY(-10px);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 18px 50px;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 30px;
+        .price-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .price-name {
+            font-size: 1.5rem;
             font-weight: 700;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,215,0,0.3);
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
         }
 
-        .guarantee {
-            background: var(--card-bg);
-            padding: 120px 0;
-            text-align: center;
-        }
-
-        .guarantee img {
-            max-width: 250px;
-            margin: 40px 0;
-        }
-
-        .features-list {
+        .price-features {
             list-style: none;
-            margin: 30px 0;
+            margin-bottom: 2rem;
             text-align: left;
         }
 
-        .features-list li {
-            margin: 15px 0;
-            color: #ffffff;
-            font-size: 1.1rem;
+        .price-features li {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
             display: flex;
             align-items: center;
         }
 
-        .features-list li i {
-            color: var(--secondary-color);
-            margin-right: 15px;
+        .price-features i {
+            color: var(--success-color);
+            margin-right: 0.75rem;
+        }
+
+        .testimonials {
+            padding: 120px 0;
+            background: var(--primary-color);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 184, 0, 0.1);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .guarantee-section {
+            padding: 80px 0;
+            background: var(--card-bg);
+            text-align: center;
+        }
+
+        .guarantee-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .guarantee-badge {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 2rem;
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
-            .header h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
-            .stats {
-                margin: 20px;
-                padding: 30px;
-            }
-            .plan-card.featured {
+            
+            .price-card.popular {
                 transform: none;
+            }
+            
+            .price-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .stats-grid {
+                margin: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <h1>ELITE TRADING AUTOMATION</h1>
-            <p>Automação de Trading para Lucros Consistentes: Transforme Sinais em Resultados Reais com Nossa Tecnologia de Alto Desempenho</p>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">ELITE TRADING</a>
+            <a href="#pricing" class="nav-cta">Começar Agora</a>
         </div>
-    </header>
+    </nav>
 
-    <div class="container">
-        <div class="stats">
-            <div class="stat-item">
-                <h3>68%</h3>
-                <p>Taxa de Assertividade Comprovada</p>
-            </div>
-            <div class="stat-item">
-                <h3>25+</h3>
-                <p>Operações Mensais com Precisão</p>
-            </div>
-            <div class="stat-item">
-                <h3>5000+</h3>
-                <p>Traders Lucrando Conosco</p>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforme Sinais em Lucros Reais</h1>
+                <p>Sistema automatizado de trading com 68% de assertividade comprovada. Tecnologia exclusiva que trabalha enquanto você descansa.</p>
+                <a href="#pricing" class="cta-primary">Comece a Lucrar Agora</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <section class="results-showcase">
+    <section class="stats">
         <div class="container">
-            <h2>Resultados Reais, Comprovados por Traders de Sucesso</h2>
-            <div class="results-grid">
-                <div class="result-card">
-                    <img src="./1.jpg" alt="Histórico de Resultados Trading">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">68%</div>
+                    <div class="stat-label">Taxa de Assertividade</div>
                 </div>
-                <div class="result-card">
-                    <img src="./2.jpg" alt="Performance de Operações">
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Operações Mensais</div>
                 </div>
-                <div class="result-card">
-                    <img src="./3.jpg" alt="Estatísticas de Trading">
+                <div class="stat-card">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Traders Ativos</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="plans">
+    <section class="features" id="features">
         <div class="container">
-            <h2>Selecione o Plano Ideal para Seus Objetivos</h2>
-            <div class="results-grid">
-                <div class="plan-card">
-                    <h3>Plano Iniciante</h3>
-                    <div class="price">R$ 75</div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check-circle"></i> 15 dias de automação completa</li>
-                        <li><i class="fas fa-check-circle"></i> Suporte básico durante o período</li>
-                        <li><i class="fas fa-check-circle"></i> Setup inicial configurado para você</li>
-                    </ul>
-                    <a href="#" class="btn">Começar Agora</a>
+            <div class="section-title">
+                <h2>Por Que Escolher o Elite Trading?</h2>
+                <p>Tecnologia de ponta combinada com estratégias comprovadas para maximizar seus resultados</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-robot feature-icon"></i>
+                    <h3>Automação Total</h3>
+                    <p>Sistema 100% automatizado que opera 24/7, identificando as melhores oportunidades do mercado.</p>
                 </div>
-                <div class="plan-card">
-                    <h3>Plano Profissional</h3>
-                    <div class="price">R$ 130</div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check-circle"></i> 30 dias de automação avançada</li>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Estratégia Validada</h3>
+                    <p>Algoritmos desenvolvidos e testados por especialistas, com histórico comprovado de resultados.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Gestão de Risco</h3>
+                    <p>Sistema inteligente de proteção de capital e gerenciamento de risco em todas as operações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha Seu Plano</h2>
+                <p>Invista em sua independência financeira com nossos planos personalizados</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3 class="price-name">Iniciante</h3>
+                    <div class="price-amount">R$ 75</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check-circle"></i> 15 dias de automação</li>
+                        <li><i class="fas fa-check-circle"></i> Suporte básico</li>
+                        <li><i class="fas fa-check-circle"></i> Setup inicial otimizado</li>
+                    </ul>
+                    <a href="#" class="cta-primary">Começar Agora</a>
+                </div>
+                <div class="price-card popular">
+                    <h3 class="price-name">Profissional</h3>
+                    <div class="price-amount">R$ 130</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check-circle"></i> 30 dias de automação</li>
                         <li><i class="fas fa-check-circle"></i> Suporte prioritário</li>
-                        <li><i class="fas fa-check-circle"></i> Acesso ao canal VIP</li>
-                        <li><i class="fas fa-check-circle"></i> Análises de mercado personalizadas</li>
+                        <li><i class="fas fa-check-circle"></i> Canal VIP exclusivo</li>
+                        <li><i class="fas fa-check-circle"></i> Análises personalizadas</li>
                     </ul>
-                    <a href="#" class="btn">Assinar Mensal</a>
+                    <a href="#" class="cta-primary">Assinar Agora</a>
                 </div>
-                <div class="plan-card featured">
-                    <h3>Plano Elite</h3>
-                    <div class="price">R$ 290</div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check-circle"></i> 90 dias de automação premium</li>
+                <div class="price-card">
+                    <h3 class="price-name">Elite</h3>
+                    <div class="price-amount">R$ 290</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check-circle"></i> 90 dias de automação</li>
                         <li><i class="fas fa-check-circle"></i> Suporte VIP 24/7</li>
-                        <li><i class="fas fa-check-circle"></i> Canal exclusivo com conteúdo premium</li>
-                        <li><i class="fas fa-check-circle"></i> Consultoria individual personalizada</li>
-                        <li><i class="fas fa-check-circle"></i> Setups sob medida otimizados</li>
+                        <li><i class="fas fa-check-circle"></i> Consultoria individual</li>
+                        <li><i class="fas fa-check-circle"></i> Setups exclusivos</li>
+                        <li><i class="fas fa-check-circle"></i> Grupo mastermind</li>
                     </ul>
-                    <a href="#" class="btn">Assinar Trimestral</a>
+                    <a href="#" class="cta-primary">Seja Elite</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="guarantee">
+    <section class="guarantee-section">
         <div class="container">
-            <h2>Garantia Incondicional de 15 Dias</h2>
-            <img src="./garantia.png" alt="Selo de Garantia 15 Dias">
-            <p>Experimente sem riscos! Se em até 15 dias você não estiver completamente satisfeito, devolveremos 100% do seu investimento, sem questionamentos.</p>
+            <div class="guarantee-content">
+                <img src="./garantia.png" alt="Selo de Garantia" class="guarantee-badge">
+                <h2>Garantia Incondicional de 15 Dias</h2>
+                <p>Teste nossa plataforma sem riscos. Se não estiver 100% satisfeito, devolvemos seu investimento integralmente.</p>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Guilherme Trader - Elite Trading Automation</p>
+            <p>© 2024 Elite Trading Automation - Todos os direitos reservados</p>
         </div>
     </footer>
 </body>
