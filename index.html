@@ -15,22 +15,9 @@
         }
 
         body {
-            background-color: #121212;
+            background-color: #0a0f1d;
             color: #e0e0e0;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        section {
-            position: relative;
-            width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
         }
 
         .nav {
@@ -38,11 +25,11 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(18, 18, 18, 0.98);
+            background: rgba(10, 15, 29, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid #333333;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-container {
@@ -62,32 +49,30 @@
         }
 
         .results-button {
-            background-color: #0088cc;
+            background: linear-gradient(135deg, #0088cc, #0055a4);
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,136,204,0.3);
         }
 
         .results-button:hover {
-            background-color: #0099ee;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,136,204,0.4);
         }
 
         .hero {
-            background: linear-gradient(145deg, #1e1e1e, #252525);
-            padding: 160px 20px 100px;
-            border-bottom: 1px solid #333333;
+            background: linear-gradient(135deg, #0c1326, #1a2440);
+            padding: 180px 20px 100px;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            margin-bottom: 60px;
         }
 
         .hero::before {
@@ -97,14 +82,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.03)"/></svg>');
             opacity: 0.5;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            text-align: center;
             position: relative;
             z-index: 1;
         }
@@ -114,99 +98,71 @@
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
             line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #b3b3b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.25rem;
             color: #b0b0b0;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
-        .trust-badges {
-            padding: 40px 20px;
-            background: linear-gradient(145deg, #1a1a1a, #222222);
-            border-bottom: 1px solid #333333;
-            margin-top: -60px;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: -50px auto 0;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
         }
 
-        .badge-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            padding: 20px 0;
-        }
-
-        .badge-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #b0b0b0;
-        }
-
-        .stats {
-            padding: 80px 20px;
-            background-color: #121212;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
         .stat-card {
-            background: linear-gradient(145deg, #1e1e1e, #252525);
-            padding: 40px 30px;
+            background: linear-gradient(145deg, #0c1326, #1a2440);
+            padding: 30px;
             border-radius: 12px;
             text-align: center;
-            border: 1px solid #333333;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
         }
 
         .stat-value {
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 800;
             color: #0088cc;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .stat-label {
             color: #b0b0b0;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+        }
+
+        .pricing {
+            padding: 100px 20px;
+            background: #0a0f1d;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-            padding: 0 20px;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
             font-size: 2.5rem;
             color: #ffffff;
             margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .section-title p {
@@ -216,90 +172,120 @@
             margin: 0 auto;
         }
 
-        .track-record {
-            padding: 100px 20px;
-            background: linear-gradient(145deg, #1a1a1a, #222222);
-            position: relative;
-            z-index: 1;
-        }
-
-        .results-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 20px 0;
-        }
-
-        .result-card {
-            background: linear-gradient(145deg, #1e1e1e, #252525);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #333333;
-            transition: all 0.3s ease;
-        }
-
-        .result-card:hover {
-            transform: translateY(-3px);
-            border-color: #0088cc;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-
-        .testimonials {
-            padding: 100px 20px;
-            background-color: #121212;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonials-grid {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px 0;
         }
 
-        .testimonial-card {
-            background: linear-gradient(145deg, #1e1e1e, #252525);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #333333;
+        .price-card {
+            background: linear-gradient(145deg, #0c1326, #1a2440);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
             transition: all 0.3s ease;
+            position: relative;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-            border-color: #0088cc;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        .price-card.popular {
+            transform: scale(1.05);
+            border: 2px solid #0088cc;
         }
 
-        @media screen and (max-width: 768px) {
-            .hero {
-                padding: 120px 20px 60px;
-            }
+        .price-card.popular::before {
+            content: 'MAIS POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0088cc;
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
 
+        .price-name {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #0088cc;
+            margin-bottom: 30px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 15px;
+            color: #b0b0b0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-features i {
+            color: #00cc88;
+        }
+
+        .guarantee {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(145deg, #0c1326, #1a2440);
+        }
+
+        .guarantee img {
+            width: 120px;
+            margin-bottom: 30px;
+        }
+
+        .guarantee h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .guarantee p {
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer {
+            padding: 30px 20px;
+            text-align: center;
+            background: #0a0f1d;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .stats-grid {
+            .stats {
                 grid-template-columns: 1fr;
+                margin-top: 30px;
             }
 
-            .badge-grid {
-                gap: 30px;
+            .price-card.popular {
+                transform: none;
             }
 
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .results-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .pricing-grid {
+                gap: 20px;
             }
         }
     </style>
@@ -317,136 +303,34 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Transforme Sinais em Lucros Reais</h1>
-            <p>Sistema automatizado de trading com 68% de assertividade comprovada. Tecnologia exclusiva que trabalha enquanto você descansa.</p>
+            <h1>Automatize Seus Lucros no Trading</h1>
+            <p>Sistema exclusivo com 68% de assertividade comprovada. Opere de forma inteligente enquanto nossos algoritmos trabalham para você.</p>
             <a href="#pricing" class="results-button">
                 <i class="fas fa-rocket"></i>
                 Começar Agora
             </a>
         </div>
     </section>
-    <section class="trust-badges">
-        <div class="badge-grid">
-            <div class="badge-item">
-                <i class="fas fa-shield-alt fa-2x" style="color: #0088cc;"></i>
-                <span>Pagamento Seguro</span>
-            </div>
-            <div class="badge-item">
-                <i class="fas fa-undo-alt fa-2x" style="color: #0088cc;"></i>
-                <span>15 Dias de Garantia</span>
-            </div>
-            <div class="badge-item">
-                <i class="fas fa-headset fa-2x" style="color: #0088cc;"></i>
-                <span>Suporte 24/7</span>
-            </div>
-        </div>
-    </section>
 
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-value">68%</div>
-                <div class="stat-label">Taxa de Assertividade</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">25+</div>
-                <div class="stat-label">Operações Mensais</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">5000+</div>
-                <div class="stat-label">Traders Ativos</div>
-            </div>
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value">68%</div>
+            <div class="stat-label">Taxa de Assertividade</div>
         </div>
-    </section>
-
-    <section class="track-record">
-        <div class="section-title">
-            <h2>Resultados Auditados</h2>
-            <p>Performance verificada e documentada mensalmente</p>
+        <div class="stat-card">
+            <div class="stat-value">25+</div>
+            <div class="stat-label">Operações Mensais</div>
         </div>
-        <div class="results-grid">
-            <div class="result-card">
-                <div class="result-month">Janeiro 2024</div>
-                <div class="result-stats">
-                    <div class="win-rate">72% Win Rate</div>
-                    <div class="profit">+24.8% Lucro</div>
-                </div>
-                <a href="resultados.html" class="verify-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    Verificar Resultados
-                </a>
-            </div>
-            <div class="result-card">
-                <div class="result-month">Fevereiro 2024</div>
-                <div class="result-stats">
-                    <div class="win-rate">68% Win Rate</div>
-                    <div class="profit">+21.3% Lucro</div>
-                </div>
-                <a href="resultados.html" class="verify-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    Verificar Resultados
-                </a>
-            </div>
-            <div class="result-card">
-                <div class="result-month">Março 2024</div>
-                <div class="result-stats">
-                    <div class="win-rate">70% Win Rate</div>
-                    <div class="profit">+23.5% Lucro</div>
-                </div>
-                <a href="resultados.html" class="verify-link">
-                    <i class="fas fa-external-link-alt"></i>
-                    Verificar Resultados
-                </a>
-            </div>
+        <div class="stat-card">
+            <div class="stat-value">5000+</div>
+            <div class="stat-label">Traders Ativos</div>
         </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="section-title">
-            <h2>Traders de Sucesso</h2>
-            <p>O que dizem nossos usuários ativos</p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Comecei há 3 meses e já recuperei todo o investimento. O suporte é excepcional e os resultados são consistentes."</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="João Silva">
-                    <div>
-                        <h4>João Silva</h4>
-                        <p>Trader há 3 meses</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Sistema fantástico! A automação funciona perfeitamente e o suporte está sempre disponível quando preciso."</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Maria Santos">
-                    <div>
-                        <h4>Maria Santos</h4>
-                        <p>Trader há 6 meses</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Melhor investimento que fiz. Os resultados são consistentes e a plataforma é muito intuitiva."</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Pedro Costa">
-                    <div>
-                        <h4>Pedro Costa</h4>
-                        <p>Trader há 1 ano</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <section class="pricing" id="pricing">
         <div class="section-title">
             <h2>Escolha Seu Plano</h2>
-            <p>Invista em sua independência financeira</p>
+            <p>Comece agora mesmo a transformar sinais em resultados reais</p>
         </div>
         <div class="pricing-grid">
             <div class="price-card">
@@ -486,17 +370,13 @@
     </section>
 
     <section class="guarantee">
-        <div class="guarantee-content">
-            <img src="./garantia.png" alt="Selo de Garantia">
-            <h2>Garantia Incondicional de 15 Dias</h2>
-            <p>Teste nossa plataforma sem riscos. Se não estiver 100% satisfeito, devolvemos seu investimento integralmente.</p>
-        </div>
+        <img src="./garantia.png" alt="Selo de Garantia">
+        <h2>Garantia Incondicional de 15 Dias</h2>
+        <p>Teste nossa plataforma sem riscos. Não ficou satisfeito? Devolvemos 100% do seu investimento, sem questionamentos.</p>
     </section>
 
     <footer class="footer">
         <p>© 2024 Elite Trading Automation - Todos os direitos reservados</p>
     </footer>
-
 </body>
 </html>
-
