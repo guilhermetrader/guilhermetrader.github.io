@@ -399,6 +399,38 @@ h1 {
         margin-bottom: 15px;
     }
 }
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    margin-left: 5px;
+    font-size: 12px;
+    color: #888;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}    
 </style>
 </head>
 <body>
@@ -578,6 +610,15 @@ function updateStats(trades, period) {
             <div class="stat-label">Unidades</div>
             <div class="stat-value">${units}</div>
         </div>
+        <div class="stat-card">
+            <div class="stat-label">
+                Unidades
+                <span class="tooltip">?
+                    <span class="tooltiptext">Cálculo: (Acertos * 0.8) - (Erros * 1). Cada acerto conta como 0.8 unidades de ganho e cada erro como 1 unidade de perda.</span>
+                </span>
+            </div>
+            <div class="stat-value">${units}</div>
+        </div>        
     `;
 
     document.querySelector('.stats').innerHTML = statsHTML;
