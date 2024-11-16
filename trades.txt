@@ -1,0 +1,2 @@
+04/10/2024,09:45,GBPUSD,Compra,90 min,✅
+04/10/2024,09:45,USDCAD,Venda,90 min,✅
