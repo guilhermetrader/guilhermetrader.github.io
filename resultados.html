@@ -607,14 +607,10 @@ function updateStats(trades, period) {
             <div class="stat-value">${rate}%</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Unidades</div>
-            <div class="stat-value">${units}</div>
-        </div>
-        <div class="stat-card">
             <div class="stat-label">
                 Unidades
                 <span class="tooltip">?
-                    <span class="tooltiptext">Cálculo: (Acertos * 0.8) - (Erros * 1). Cada acerto conta como 0.8 unidades de ganho e cada erro como 1 unidade de perda.</span>
+                    <span class="tooltiptext">Simulando uma entrada com payout de 80% da plataforma, cada acerto conta como +0.80 e cada derrota como -1.00.</span>
                 </span>
             </div>
             <div class="stat-value">${units}</div>
