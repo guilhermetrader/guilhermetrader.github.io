@@ -495,7 +495,13 @@ async function loadTradesData() {
     try {
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDs6zbVrmI2TNzxWv0hbQfrrszNBfmfgnQtj2UVSqYetSR25f-z9OhWAry1pJDf4iz2bNZLB25HhRM/pub?gid=0&single=true&output=csv';
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const response = await fetch(proxyUrl + url);
+const response = await fetch(proxyUrl + url, {
+    method: 'GET',
+    headers: {
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'text/csv;charset=UTF-8'
+    }
+});
         if (!response.ok) throw new Error('Erro ao carregar dados');
         
         const text = await response.text();
