@@ -494,7 +494,8 @@ function validateTrade(trade) {
 async function loadTradesData() {
     try {
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDs6zbVrmI2TNzxWv0hbQfrrszNBfmfgnQtj2UVSqYetSR25f-z9OhWAry1pJDf4iz2bNZLB25HhRM/pub?gid=0&single=true&output=csv';
-        const response = await fetch(url);
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const response = await fetch(proxyUrl + url);
         if (!response.ok) throw new Error('Erro ao carregar dados');
         
         const text = await response.text();
@@ -516,6 +517,7 @@ async function loadTradesData() {
         return [];
     }
 }
+
 
 function getLastUpdateDate(trades) {
     const sortedTrades = [...trades].sort((a, b) => {
