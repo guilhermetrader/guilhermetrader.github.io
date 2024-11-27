@@ -475,55 +475,33 @@ h1 {
         </div>
     </div>
 <script>
+const url = 'https://docs.google.com/spreadsheets/d/1Se45NUEhH2DcL9XjWIBH5nJmSaCK18R1oqU3veC3fIQ/gviz/tq?tqx=out:csv';
+
 function validateTrade(trade) {
-    if (trade.length !== 6) return false;
-    
+    if (trade.length < 6) return false;
     const [data, hora, moeda, tipo, tempo, resultado] = trade;
-    
-    const dataRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-    if (!dataRegex.test(data)) return false;
-    
-    const horaRegex = /^\d{2}:\d{2}$/;
-    if (!horaRegex.test(hora)) return false;
-    
-    if (resultado !== 'GAIN ✅' && resultado !== '❌') return false;
-    
-    return true;
+    return data && hora && moeda && tipo && tempo && (resultado === 'GAIN ✅' || resultado === '❌');
 }
 
 async function loadTradesData() {
     try {
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDs6zbVrmI2TNzxWv0hbQfrrszNBfmfgnQtj2UVSqYetSR25f-z9OhWAry1pJDf4iz2bNZLB25HhRM/pub?gid=0&single=true&output=csv';
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-const response = await fetch(proxyUrl + url, {
-    method: 'GET',
-    headers: {
-        'Cache-Control': 'no-cache',
-        'Content-Type': 'text/csv;charset=UTF-8'
-    }
-});
-        if (!response.ok) throw new Error('Erro ao carregar dados');
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         
         const text = await response.text();
         const rows = text.split('\n').slice(1); // Pula a primeira linha (cabeçalho)
+        
         const trades = rows.map(row => {
-            const [data, hora, moeda, entrada, tempo, resultado, porcentagem] = row.split(',');
-            return [data, hora, moeda, entrada, tempo, resultado];
+            const columns = row.replace(/"/g, '').split(',');
+            return columns.slice(0, 6); // Pega apenas as primeiras 6 colunas
         });
         
-        const validTrades = trades.filter(validateTrade);
-        
-        if (validTrades.length === 0) {
-            throw new Error('Nenhum dado válido encontrado');
-        }
-        
-        return validTrades;
+        return trades;
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
-        return [];
+        throw error;
     }
 }
-
 
 function getLastUpdateDate(trades) {
     const sortedTrades = [...trades].sort((a, b) => {
@@ -663,20 +641,16 @@ function addAccordionEvents() {
 async function processData() {
     try {
         const tradesData = await loadTradesData();
+        const validTrades = tradesData.filter(validateTrade);
         
-        if (tradesData.length === 0) {
-            document.getElementById('months-container').innerHTML = `
-                <div class="error-message">
-                    Erro ao carregar os dados. Por favor, tente novamente mais tarde.
-                </div>
-            `;
-            return;
+        if (validTrades.length === 0) {
+            throw new Error('Nenhum dado válido encontrado');
         }
 
-        document.querySelector('.last-update').textContent = `Última atualização em ${getLastUpdateDate(tradesData)}`;
+        document.querySelector('.last-update').textContent = `Última atualização em ${getLastUpdateDate(validTrades)}`;
         
         let monthlyData = {};
-        tradesData.forEach(row => {
+        validTrades.forEach(row => {
             const [day, month, year] = row[0].split('/');
             const date = new Date(year, month - 1, day);
             
@@ -704,7 +678,7 @@ async function processData() {
             statsFilter.innerHTML += `<option value="${month}">${month}</option>`;
         });
 
-        updateStats(tradesData, 'all');
+        updateStats(validTrades, 'all');
 
         const container = document.getElementById('months-container');
         container.innerHTML = '';
@@ -718,7 +692,7 @@ async function processData() {
         statsFilter.addEventListener('change', (e) => {
             const selectedMonth = e.target.value;
             if (selectedMonth === 'all') {
-                updateStats(tradesData, 'all');
+                updateStats(validTrades, 'all');
             } else {
                 updateStats(monthlyData[selectedMonth], selectedMonth);
             }
@@ -727,7 +701,8 @@ async function processData() {
         console.error('Erro ao processar dados:', error);
         document.getElementById('months-container').innerHTML = `
             <div class="error-message">
-                Ocorreu um erro ao processar os dados. Por favor, tente novamente mais tarde.
+                Ocorreu um erro ao processar os dados: ${error.message}<br>
+                Por favor, tente novamente mais tarde.
             </div>
         `;
     }
