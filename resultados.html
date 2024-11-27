@@ -224,7 +224,7 @@ table {
 }
 
 th, td {
-    width: calc(100% / 6);
+    width: calc(100% / 7);
     padding: 14px;
     text-align: center;
 }
@@ -486,21 +486,23 @@ function validateTrade(trade) {
     const horaRegex = /^\d{2}:\d{2}$/;
     if (!horaRegex.test(hora)) return false;
     
-    if (resultado !== '✅' && resultado !== '❌') return false;
+    if (resultado !== 'GAIN ✅' && resultado !== '❌') return false;
     
     return true;
 }
 
 async function loadTradesData() {
     try {
-        const response = await fetch('trades.txt');
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTDs6zbVrmI2TNzxWv0hbQfrrszNBfmfgnQtj2UVSqYetSR25f-z9OhWAry1pJDf4iz2bNZLB25HhRM/pub?gid=0&single=true&output=csv';
+        const response = await fetch(url);
         if (!response.ok) throw new Error('Erro ao carregar dados');
         
         const text = await response.text();
-        const trades = text.trim()
-            .split('\n')
-            .filter(line => line && !line.startsWith('#'))
-            .map(line => line.split(','));
+        const rows = text.split('\n').slice(1); // Pula a primeira linha (cabeçalho)
+        const trades = rows.map(row => {
+            const [data, hora, moeda, entrada, tempo, resultado, porcentagem] = row.split(',');
+            return [data, hora, moeda, entrada, tempo, resultado];
+        });
         
         const validTrades = trades.filter(validateTrade);
         
@@ -574,7 +576,7 @@ function createMonthlySection(month, trades) {
                                     <td data-label="Moeda">${trade[2]}</td>
                                     <td data-label="Tipo">${trade[3]}</td>
                                     <td data-label="Tempo">${trade[4]}</td>
-                                    <td data-label="Resultado" class="${trade[5] === '✅' ? 'success' : 'error'}">${trade[5]}</td>
+                                    <td data-label="Resultado" class="${trade[5] === 'GAIN ✅' ? 'success' : 'error'}">${trade[5]}</td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -593,7 +595,7 @@ function calculateUnits(success, errors) {
 
 function updateStats(trades, period) {
     const total = trades.length;
-    const success = trades.filter(trade => trade[5] === '✅').length;
+    const success = trades.filter(trade => trade[5] === 'GAIN ✅').length;
     const errors = total - success;
     const rate = ((success / total) * 100).toFixed(2);
     const units = calculateUnits(success, errors);
