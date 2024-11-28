@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Trading Automation - Guilherme Trader</title>
+    <title>Método Trader Iniciante - Aprenda a Operar do Zero | Guilherme Trader</title>
+    <meta name="description" content="Aprenda a operar no mercado financeiro passo a passo do absoluto zero com um método comprovado.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -12,14 +13,49 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: #0a0f1d;
             color: #e0e0e0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .module-card {
+            background: linear-gradient(145deg, #0c1326, #1a2440);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateX(10px);
+        }
+
+        .module-card h3 {
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .module-card h3 i {
+            color: #0088cc;
+        }
+
+        .module-card p {
+            color: #b0b0b0;
+        }
         .nav {
             position: fixed;
             top: 0;
@@ -30,12 +66,15 @@
             z-index: 1000;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            padding: 0.7rem 0;
+            background: rgba(10, 15, 29, 0.98);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,6 +85,30 @@
             font-size: 1.5rem;
             color: #ffffff;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #0088cc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #0088cc;
         }
 
         .results-button {
@@ -65,6 +128,7 @@
         .results-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,136,204,0.4);
+            background: linear-gradient(135deg, #0099e6, #0066cc);
         }
 
         .hero {
@@ -86,11 +150,32 @@
             opacity: 0.5;
         }
 
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to top, #0a0f1d, transparent);
+        }
+
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
             position: relative;
             z-index: 1;
+        }
+
+        .hero-badge {
+            background: rgba(0,136,204,0.1);
+            color: #0088cc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .hero h1 {
@@ -108,17 +193,211 @@
             font-size: 1.25rem;
             color: #b0b0b0;
             margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .secondary-button {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .secondary-button:hover {
+            color: #0088cc;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-chart-line"></i>
+                Guilherme Trader
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Recursos</a>
+                <a href="#pricing" class="nav-link">Planos</a>
+                <a href="#testimonials" class="nav-link">Depoimentos</a>
+                <a href="#pricing" class="results-button">
+                    <i class="fas fa-rocket"></i>
+                    Começar Agora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                Método Comprovado Que Realmente Funciona!
+            </div>
+            <h1>Do Zero ao Trader Profissional</h1>
+            <p>Aprenda a operar no mercado financeiro passo a passo do absoluto zero. Aulas práticas com demonstração em tela real.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="results-button">
+                    <i class="fas fa-play-circle"></i>
+                    Quero Aprender Agora
+                </a>
+                <a href="#features" class="secondary-button">
+                    <i class="fas fa-info-circle"></i>
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">69%</div>
+                    <div class="stat-label">Taxa de Assertividade</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Estratégias Comprovadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">25+</div>
+                    <div class="stat-label">Operações por mês em média</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos Exclusivos</h2>
+                <p>Tudo o que você precisa para se tornar um trader de sucesso</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="feature-title">Aulas em Vídeo</h3>
+                    <p class="feature-description">Conteúdo detalhado e fácil de entender, com demonstrações práticas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="feature-title">Indicador Exclusivo</h3>
+                    <p class="feature-description">Ferramenta própria para identificar as melhores oportunidades.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Sala de Sinais</h3>
+                    <p class="feature-description">Acesso a um grupo exclusivo onde são enviadas as oportunidades em tempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">Suporte via WhatsApp</h3>
+                    <p class="feature-description">Tire suas dúvidas sempre que precisar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha Seu Plano</h2>
+                <p>Invista em seu futuro hoje mesmo</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-tag">ACESSO BÁSICO</div>
+                    <h3 class="price-name">Iniciante</h3>
+                    <div class="price-amount">R$ 147</div>
+                    <div class="price-period">Pagamento único</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check-circle"></i>Curso completo passo a passo</li>
+                        <li><i class="fas fa-check-circle"></i>12 meses de acesso às aulas</li>
+                        <li><i class="fas fa-check-circle"></i>Indicador próprio exclusivo</li>
+                        <li><i class="fas fa-check-circle"></i>Suporte via WhatsApp</li>
+                        <li><i class="fas fa-check-circle"></i>Atualizações gratuitas</li>
+                    </ul>
+                    <div class="price-highlight">
+                        <i class="fas fa-gift"></i>
+                        <span>Bônus: Planilha de Gestão</span>
+                    </div>
+                    <a href="#" class="results-button">
+                        <i class="fas fa-lock-open"></i>
+                        Garantir Minha Vaga
+                    </a>
+                </div>
+
+                <div class="price-card popular">
+                    <div class="price-tag">MAIS ESCOLHIDO</div>
+                    <h3 class="price-name">Profissional</h3>
+                    <div class="price-amount">R$ 297</div>
+                    <div class="price-period">Pagamento único</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check-circle"></i><strong>Tudo do plano Iniciante</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Acesso anual a Sala de Sinais!</li>
+                    </ul>
+                    <div class="price-highlight">
+                        <i class="fas fa-gift"></i>
+                        <span>Bônus: Estratégia Extra</span>
+                    </div>
+                    <a href="#" class="results-button">
+                        <i class="fas fa-lock-open"></i>
+                        Quero Ser Profissional
+                    </a>
+                </div>
+
+                <div class="price-card premium">
+                    <div class="price-tag">ACESSO COMPLETO</div>
+                    <h3 class="price-name">Elite</h3>
+                    <div class="price-amount">R$ 497</div>
+                    <div class="price-period">Pagamento único</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check-circle"></i><strong>Tudo do plano Profissional</strong></li>
+                        <li><i class="fas fa-check-circle"></i>Acesso anual a automação na sua conta!</li>
+                        <li><i class="fas fa-check-circle"></i>Suporte VIP</li>
+                    </ul>
+                    <div class="price-highlight">
+                        <i class="fas fa-gift"></i>
+                        <span>Bônus: 1H Mentoria Individual</span>
+                    </div>
+                    <a href="#" class="results-button">
+                        <i class="fas fa-lock-open"></i>
+                        Quero Ser Elite
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
         .stats {
+            padding: 80px 0;
+            background: #0a0f1d;
+        }
+
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            max-width: 1000px;
-            margin: -50px auto 0;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
         }
 
         .stat-card {
@@ -127,8 +406,7 @@
             border-radius: 12px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .stat-card:hover {
@@ -149,14 +427,168 @@
             letter-spacing: 1px;
         }
 
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0c1326, #1a2440);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0,136,204,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon i {
+            color: #0088cc;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
         .pricing {
-            padding: 100px 20px;
+            padding: 100px 0;
             background: #0a0f1d;
         }
 
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: linear-gradient(145deg, #0c1326, #1a2440);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            transform: rotate(45deg);
+            background: #0088cc;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .price-card.popular {
+            transform: scale(1.05);
+            border: 2px solid #0088cc;
+            box-shadow: 0 8px 30px rgba(0,136,204,0.2);
+        }
+
+        .price-card.premium .price-tag {
+            background: #00cc88;
+        }
+
+        .price-name {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin: 20px 0;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #0088cc;
+            margin-bottom: 10px;
+        }
+
+        .price-period {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-features i {
+            color: #00cc88;
+        }
+
+        .price-highlight {
+            background: rgba(0,136,204,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            color: #0088cc;
+            font-weight: 600;
+        }
+
+        .price-card .results-button {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.popular {
+                transform: none;
+            }
+        }
         .section-title {
             text-align: center;
             margin-bottom: 50px;
+            padding: 0 20px;
         }
 
         .section-title h2 {
@@ -172,83 +604,119 @@
             margin: 0 auto;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+        .modules {
+            padding: 100px 20px;
+            background: linear-gradient(145deg, #0a0f1d, #0c1326);
+        }      
+    </style>
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2>Garantia Incondicional de 15 Dias</h2>
+                <p>Tenha acesso total ao conteúdo por 15 dias. Se não ficar completamente satisfeito, devolvemos 100% do seu investimento sem perguntas e sem enrolação.</p> 
+                <ul class="guarantee-list">
+                    <li><i class="fas fa-check-circle"></i> Reembolso Total</li>
+                    <li><i class="fas fa-check-circle"></i> 15 Dias De Garantia</li>
+                    <li><i class="fas fa-check-circle"></i> Zero Burocracia</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules">
+        <div class="section-title">
+            <h2>Conteúdo do Treinamento</h2>
+            <p>Aprenda do básico ao avançado com aulas práticas e objetivas</p>
+        </div>
+        <div class="container">
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 1 - Primeiros Passos</h3>
+                <p>Boas-Vindas e como criar sua conta na plataforma de forma segura</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 2 - Setup Profissional</h3>
+                <p>Configuração completa do TradingView para operar como um profissional</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 3 - Indicador Exclusivo</h3>
+                <p>Configuração do indicador proprietário para identificar as melhores entradas</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 4 - Gestão Financeira</h3>
+                <p>Como fazer depósitos e saques de forma segura na plataforma</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 5 - Mercado de Opções</h3>
+                <p>Entenda como funciona o mercado de opções na Deriv de forma simples</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 6 - Alertas e Automação</h3>
+                <p>Configure alertas automáticos para não perder nenhuma oportunidade</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-play-circle"></i> Aula 7 - Operação em Grupo</h3>
+                <p>Como operar junto com nosso grupo VIP no Telegram</p>
+            </div>
+            <div class="module-card">
+                <h3><i class="fas fa-gift"></i> Bônus Exclusivo</h3>
+                <p>Estratégia operacional simplificada para resultados rápidos</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Preciso ter experiência prévia?</h3>
+                    <p>Não, nosso método é desenvolvido para iniciantes absolutos. Começamos do zero e avançamos gradualmente.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quanto tempo leva para ver resultados?</h3>
+                    <p>Isso varia de aluno para aluno, mas muitos começam a ver resultados consistentes após os primeiros 15 dias.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>O acesso é vitalício?</h3>
+                    <p>O acesso ao curso principal é anual. Os planos Profissional e Elite incluem benefícios adicionais por períodos específicos.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Posso cancelar a qualquer momento?</h3>
+                    <p>Sim, oferecemos garantia de 15 dias. Se não estiver satisfeito, devolvemos seu investimento integralmente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+            <div class="footer-bottom">
+                <p>&copy; 2024 Método Trader Pro. Todos os direitos reservados.</p>
+                <ul>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+
+    <style>
+        .guarantee {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0c1326, #1a2440);
+        }
+
+        .guarantee-content {
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .price-card {
-            background: linear-gradient(145deg, #0c1326, #1a2440);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .price-card.popular {
-            transform: scale(1.05);
-            border: 2px solid #0088cc;
-        }
-
-        .price-card.popular::before {
-            content: 'MAIS POPULAR';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #0088cc;
-            color: #ffffff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .price-name {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .price-amount {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #0088cc;
-            margin-bottom: 30px;
-        }
-
-        .price-features {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-
-        .price-features li {
-            margin-bottom: 15px;
-            color: #b0b0b0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-features i {
+        .guarantee-icon {
+            font-size: 4rem;
             color: #00cc88;
-        }
-
-        .guarantee {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(145deg, #0c1326, #1a2440);
-        }
-
-        .guarantee img {
-            width: 120px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .guarantee h2 {
@@ -259,121 +727,188 @@
 
         .guarantee p {
             color: #b0b0b0;
+            margin-bottom: 30px;
+        }
+
+        .guarantee-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .guarantee-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e0e0e0;
+        }
+
+        .guarantee-list i {
+            color: #00cc88;
+        }
+
+        .faq {
+            padding: 100px 0;
+            background: #0a0f1d;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .faq-item {
+            background: linear-gradient(145deg, #0c1326, #1a2440);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .faq-item h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: #b0b0b0;
+        }
+
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0c1326, #1a2440);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: #b0b0b0;
+            margin-bottom: 30px;
             max-width: 600px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer {
-            padding: 30px 20px;
-            text-align: center;
             background: #0a0f1d;
+            padding: 80px 0 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info p {
+            color: #b0b0b0;
+            margin-top: 20px;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a, .footer-contact p {
+            color: #b0b0b0;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #b0b0b0;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #0088cc;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: #b0b0b0;
+        }
+
+        .footer-bottom ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom a {
+            color: #b0b0b0;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .guarantee-list {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .stats {
+            .footer-grid {
                 grid-template-columns: 1fr;
-                margin-top: 30px;
             }
 
-            .price-card.popular {
-                transform: none;
-            }
-
-            .pricing-grid {
+            .footer-bottom {
+                flex-direction: column;
                 gap: 20px;
+                text-align: center;
             }
         }
     </style>
-</head>
-<body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="#" class="logo">Guilherme Trader</a>
-            <a href="resultados.html" class="results-button">
-                <i class="fas fa-chart-line"></i>
-                Acessar Resultados
-            </a>
-        </div>
-    </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Automatize Seus Lucros no Trading</h1>
-            <p>Estratégias exclusivas com aproximadamente 70% de assertividade comprovada. Opere de forma estratégica enquanto nossos algoritmos avançados fazem o trabalho por você.</p>
-            <a href="#pricing" class="results-button">
-                <i class="fas fa-rocket"></i>
-                Começar Agora
-            </a>
-        </div>
-    </section>
+    <script>
+        // Script para efeito de scroll na navegação
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-    <div class="stats">
-        <div class="stat-card">
-            <div class="stat-value">68%</div>
-            <div class="stat-label">Taxa de Assertividade</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">25+</div>
-            <div class="stat-label">Operações Mensais</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">120+</div>
-            <div class="stat-label">Traders Ativos</div>
-        </div>
-    </div>
+        // Script para scroll suave nos links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
-    <section class="pricing" id="pricing">
-        <div class="section-title">
-            <h2>Escolha Seu Plano</h2>
-            <p>Comece agora a transformar sinais em lucros reais!</p>
-        </div>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3 class="price-name">Iniciante</h3>
-                <div class="price-amount">R$ 75</div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check-circle"></i>15 dias de automação</li>
-                    <li><i class="fas fa-check-circle"></i>Suporte básico</li>
-                    <li><i class="fas fa-check-circle"></i>Ativação completa</li>
-                </ul>
-                <a href="#" class="results-button">Começar Agora</a>
-            </div>
-            <div class="price-card popular">
-                <h3 class="price-name">Profissional</h3>
-                <div class="price-amount">R$ 130</div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check-circle"></i>30 dias de automação</li>
-                    <li><i class="fas fa-check-circle"></i>Suporte prioritário</li>
-                    <li><i class="fas fa-check-circle"></i>Grupo VIP exclusivo</li>
-                </ul>
-                <a href="#" class="results-button">Começar Agora</a>
-            </div>
-            <div class="price-card">
-                <h3 class="price-name">Elite</h3>
-                <div class="price-amount">R$ 290</div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check-circle"></i>90 dias de automação</li>
-                    <li><i class="fas fa-check-circle"></i>Mentoria individual</li>
-                    <li><i class="fas fa-check-circle"></i>Estratégias exclusivas</li>
-                </ul>
-                <a href="#" class="results-button">Começar Agora</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="guarantee">
-        <img src="./garantia.png" alt="Selo de Garantia">
-        <h2>Garantia Incondicional de 15 Dias</h2>
-        <p>Experimente nossa plataforma automação sem riscos. Se não estiver totalmente satisfeito, devolvemos 100% do seu investimento, sem perguntas e sem complicações.</p>
-    </section>
-
-    <footer class="footer">
-        <p>© 2024 Elite Trading Automation - Todos os direitos reservados</p>
-    </footer>
 </body>
 </html>
