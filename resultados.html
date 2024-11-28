@@ -480,7 +480,7 @@ const url = 'https://docs.google.com/spreadsheets/d/1Se45NUEhH2DcL9XjWIBH5nJmSaC
 function validateTrade(trade) {
     if (trade.length < 6) return false;
     const [data, hora, moeda, tipo, tempo, resultado] = trade;
-    return data && hora && moeda && tipo && tempo && (resultado === 'GAIN ✅' || resultado === '❌');
+    return data && hora && moeda && tipo && tempo && resultado;
 }
 
 async function loadTradesData() {
@@ -555,16 +555,16 @@ function createMonthlySection(month, trades) {
                             </tr>
                         </thead>
                         <tbody>
-                            ${trades.map(trade => `
-                                <tr>
-                                    <td data-label="Data">${trade[0]}</td>
-                                    <td data-label="Hora">${trade[1]}</td>
-                                    <td data-label="Moeda">${trade[2]}</td>
-                                    <td data-label="Tipo">${trade[3]}</td>
-                                    <td data-label="Tempo">${trade[4]}</td>
-                                    <td data-label="Resultado" class="${trade[5] === 'GAIN ✅' ? 'success' : 'error'}">${trade[5]}</td>
-                                </tr>
-                            `).join('')}
+${trades.map(trade => `
+    <tr>
+        <td data-label="Data">${trade[0]}</td>
+        <td data-label="Hora">${trade[1]}</td>
+        <td data-label="Moeda">${trade[2]}</td>
+        <td data-label="Tipo">${trade[3]}</td>
+        <td data-label="Tempo">${trade[4]}</td>
+        <td data-label="Resultado" class="${trade[5] === 'GAIN ✅' ? 'success' : 'error'}">${trade[5]}</td>
+    </tr>
+`).join('')}
                         </tbody>
                     </table>
                 </div>
