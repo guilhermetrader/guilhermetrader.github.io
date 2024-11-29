@@ -533,7 +533,7 @@ ${trades.map(trade => `
         <td data-label="Moeda">${trade[2]}</td>
         <td data-label="Tipo">${trade[3]}</td>
         <td data-label="Tempo">${trade[4]}</td>
-        <td data-label="Resultado" class="${trade[5] === 'GAIN ✅' ? 'success' : 'error'}">${trade[5]}</td>
+        <td data-label="Resultado" class="${trade[5] === '✅' ? 'success' : 'error'}">${trade[5]}</td>
     </tr>
 `).join('')}
                         </tbody>
@@ -552,7 +552,7 @@ function calculateUnits(success, errors) {
 
 function updateStats(trades, period) {
     const total = trades.length;
-    const success = trades.filter(trade => trade[5] === 'GAIN ✅').length;
+    const success = trades.filter(trade => trade[5] === '✅').length;
     const errors = total - success;
     const rate = ((success / total) * 100).toFixed(2);
     const units = calculateUnits(success, errors);
